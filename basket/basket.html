@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        .cart{
+            font-family: "Raleway", serif;
+            font-optical-sizing: auto;
+            font-weight: <weight>;
+            font-style: normal;
+            font-size: 2vw;
+        }
+        .btn {
+        font-family: "Raleway", serif;
+        font-optical-sizing: auto;
+        font-weight: <weight>;
+        font-style: normal;
+        font-size: 2vw;
+        margin-bottom: 2vh;
+        }
+        .btn1{
+        font-family: "Raleway", serif;
+        font-optical-sizing: auto;
+        font-weight: <weight>;
+        font-style: normal;
+        font-size: 1.3vw;
+        margin: 1vh;
+        }
+
+        #name{
+            display:inline-block;
+            font-family: "Raleway", serif;
+            font-optical-sizing: auto;
+            font-weight: <weight>;
+            font-style: normal;
+            font-size: 3em;
+            margin-left: 0.5vw;
+            margin-top: 0.5vw;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            display:inline-block;
+            position: absolute;
+            margin-top: 1.5vw;
+            right: 22.5vw;    
+        }
+        .buttons {
+            display: flex;
+            gap: 8vw; /* Расстояние между кнопками */
+        }
+        .menu-button {
+            display: none; /* Скрываем кнопку по умолчанию */
+        }
+        .menu {
+            display: none; /* Скрываем меню по умолчанию */
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 100%;
+            background-color: white;
+            box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+            z-index: 1000; /* На переднем плане */
+            padding: 20px;
+            flex-wrap: wrap;
+            }
+        .close-button {
+            cursor: pointer;
+            font-size: 6vw;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 600px) {
+            .buttons {
+                display: none; /* Скрываем кнопки на мобильных устройствах */
+            }
+            .menu-button {
+                display: block; /* Показываем кнопку на мобильных устройствах */
+            }
+            .menu.active {
+                display: block; /* Показываем меню при активации */
+            }
+            .menu{
+                position: fixed;
+                top: 0;
+                right: 0;
+            }
+            .container{
+                right: 2vw;
+            }
+            #reviews1{
+                font-size: 7vw;
+            }
+            #catalog1{
+                font-size: 7vw;
+            }
+            #aboutus1{
+                font-size: 7vw;
+            }
+            #basket1{
+                font-size: 7vw;
+            }
+            #main1{
+            font-size: 7vw;
+            }
+        }
+        @media (max-width: 1200px) {
+            .text{
+                font-size: 2vw;
+            }
+            .topname{
+                font-size: 4.7vw;
+            }
+        }
+        @media (max-width: 900px) {
+            .text{
+                font-size: 3vw;
+            }
+            .topname{
+                font-size: 5.4vw;
+            }
+            .container{
+                margin-top: 2.4vw;
+                right: 1.7vw;
+            }
+            .btn{
+                font-family: "Raleway", serif;
+                font-optical-sizing: auto;
+                font-weight: <weight>;
+                font-style: normal;
+                font-size: 3vw;
+            }
+        }
+        @media (max-width: 400px) {
+            .text{
+                font-size: 5vw;
+            }
+            .topname{
+                font-size: 8vw;
+            }
+        }
+        .topname{
+            font-family: "Raleway", serif;
+            font-optical-sizing: auto;
+            font-weight: <weight>;
+            font-style: normal;
+            font-size: 4vw;
+            text-align: center;
+        }
+        #cartItems{
+            font-family: "Raleway", serif;
+            font-optical-sizing: auto;
+            font-weight: <weight>;
+            font-style: normal;
+            font-size: 1.5vw;
+        }
+        #prices{
+            font-family: "Raleway", serif;
+            font-optical-sizing: auto;
+            font-weight: <weight>;
+            font-style: normal;
+            font-size: 1.5vw;
+        }
+    </style>
+</head>
+<body>
+    <div class="top">
+        <div id="name">AnnaSun</div>
+        <div class="container">
+            <div class="buttons" id="buttons">
+                <a id="main" class="btn">Главная</a>
+                <a id="aboutus" class="btn">О нас</a>
+                <a class="btn" id="reviews">Отзывы</a>
+                <a id="catalog" class="btn">Каталог</a>
+            </div>
+            <div class="menu-button" id="menuButton"><a><img src="../pictures/Ic_menu_48px.svg.png" width="45" alt="Пример"></a></div>
+            <div class="menu" id="menu">
+                <div class="close-button" id="closeButton">&times;</div>
+                <div><a id="main1" class="btn">Главная</a></div>
+                <div><a id="aboutus1" class="btn">О нас</a></div>
+                <div><a id="reviews1" class="btn">Отзывы</a></div>
+                <div><a id="catalog1" class="btn">Каталог</a></div>
+            </div>
+        </div>
+    </div>
+    <div class="topname">Корзина</div>
+    <div id="cartItems"></div>
+    <div id="prices">Итоговая сумма корзины: <b>0</b> руб.</div>
+    <button class="btn1" onclick="clearCart()">Очистить корзину</button>
+    <button class="btn1" onclick="openWhatsApp()">Написать в WhatsApp</button>
+    <button  class="btn1" onclick="openTelegram()">Написать в Telegram</button>
+    <script src="../script/script.js"></script>
+    <script>
+        window.onload = function() {
+            displayCart();
+        };
+        document.getElementById('catalog').onclick = function() {
+            window.location.href = '../catalog/catalog.html';
+        };
+        document.getElementById('reviews').onclick = function() {
+            window.location.href = '../reviews/reviews.html';
+        };
+        document.getElementById('catalog1').onclick = function() {
+            window.location.href = '../catalog/catalog.html';
+        };
+        document.getElementById('reviews1').onclick = function() {
+            window.location.href = '../reviews/reviews.html';
+        };
+        document.getElementById('main').onclick = function() {
+            window.location.href = '../index.html';
+        };
+        document.getElementById('main1').onclick = function() {
+            window.location.href = '../index.html';
+        };
+        document.getElementById('aboutus').onclick = function() {
+            window.location.href = '../aboutus/aboutus.html';
+        };
+        document.getElementById('aboutus1').onclick = function() {
+            window.location.href = '../aboutus/aboutus.html';
+        };
+    </script>
+</body>
+</html>
